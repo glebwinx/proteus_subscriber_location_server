@@ -1,0 +1,6 @@
+/home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/CMakeFiles/locator.dir
+/home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/CMakeFiles/edit_cache.dir
+/home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/CMakeFiles/rebuild_cache.dir
+/home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-build/CMakeFiles/spdlog.dir
+/home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-build/CMakeFiles/edit_cache.dir
+/home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-build/CMakeFiles/rebuild_cache.dir

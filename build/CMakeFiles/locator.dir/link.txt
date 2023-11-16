@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/locator.dir/locator.cpp.o -o locator  _deps/spdlog-build/libspdlog.a 
