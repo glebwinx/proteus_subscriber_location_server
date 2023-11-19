@@ -46,6 +46,11 @@ private:
 
 std::shared_ptr<spdlog::logger> MyLogger::logger_ = nullptr;
 
+//Загрузка из файла конфигурации списка зон
+void GetZoneFromFile(){
+
+}
+
 void GetSubscriber(const std::string& id) {
     MyLogger::logInfo(log_var_msg.str());
     if (id.length() == 12) {
@@ -56,6 +61,29 @@ void GetSubscriber(const std::string& id) {
         log_var_msg << "Номер введён не корректно или не распознан. Введено: " << id;
         MyLogger::logInfo(log_var_msg.str());
     }
+}
+
+// Конфигурирование зон
+void AddZone(int id, std:: string& NameZone, int x, int y, int radius){
+
+}
+// Получение списка зон в которых находится абонент
+void SetSubscriberLocation(std:: string& id, int x, int y){
+
+}
+
+// Выдача списка абонентов, которые находятся в зоне id
+void GetSubscriberinZone(int id){
+
+}
+
+// Триггер на зону
+void TriggerOnZone(){
+
+}
+// Триггер на сближение абонентов
+void TriggerForUnionSubscribers(){
+
 }
 
 int main() {
