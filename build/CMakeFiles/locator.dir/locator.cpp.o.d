@@ -150,7 +150,12 @@ CMakeFiles/locator.dir/locator.cpp.o: \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc \
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/fstream \
+ /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/sstream \
+ /usr/include/c++/11/bits/sstream.tcc \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/spdlog.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/common.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/tweakme.h \
@@ -231,4 +236,9 @@ CMakeFiles/locator.dir/locator.cpp.o: \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/circular_q.h \
  /usr/include/c++/11/cassert /usr/include/assert.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/version.h \
- /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/synchronous_factory.h
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/synchronous_factory.h \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/sinks/basic_file_sink.h \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/file_helper.h \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/sinks/base_sink.h \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/sinks/sink.h \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/formatter.h
