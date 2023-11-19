@@ -27,6 +27,9 @@
         "required": [ "id", "name", "x", "y", "radius" ]
       }
     },
+  "subscribers": {
+    "number": "string"
+    },
 	"log_level": {
       "type": "string",
       "enum": [ "trace", "debug", "info", "warn", "err", "critical", "off"]
