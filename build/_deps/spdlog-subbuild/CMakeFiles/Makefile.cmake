@@ -10,10 +10,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.27.7/CMakeSystem.cmake"
   "CMakeLists.txt"
   "spdlog-populate-prefix/tmp/spdlog-populate-mkdirs.cmake"
-  "/usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake"
   "/usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.27/Modules/CMakeGenericSystem.cmake"
   "/usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake"
-  "/usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.27/Modules/CMakeSystem.cmake.in"
   "/usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake"
   "/usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake"
   "/usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.27/Modules/ExternalProject.cmake"
@@ -38,7 +36,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.27.7/CMakeSystem.cmake"
   "spdlog-populate-prefix/tmp/spdlog-populate-mkdirs.cmake"
   "spdlog-populate-prefix/src/spdlog-populate-stamp/download-spdlog-populate.cmake"
   "spdlog-populate-prefix/src/spdlog-populate-stamp/extract-spdlog-populate.cmake"

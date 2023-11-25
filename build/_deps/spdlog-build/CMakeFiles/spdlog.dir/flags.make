@@ -6,5 +6,5 @@ CXX_DEFINES = -DSPDLOG_COMPILED_LIB
 
 CXX_INCLUDES = -I/home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include
 
-CXX_FLAGS = -O3 -DNDEBUG -std=c++11
+CXX_FLAGS = -O3 -DNDEBUG -std=c++14
 

@@ -11,9 +11,8 @@ CMakeFiles/locator.dir/locator.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
- /usr/include/c++/11/pstl/pstl_config.h /usr/include/c++/11/ostream \
- /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
- /usr/include/c++/11/bits/stringfwd.h \
+ /usr/include/c++/11/ostream /usr/include/c++/11/ios \
+ /usr/include/c++/11/iosfwd /usr/include/c++/11/bits/stringfwd.h \
  /usr/include/c++/11/bits/memoryfwd.h /usr/include/c++/11/bits/postypes.h \
  /usr/include/c++/11/cwchar /usr/include/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -106,9 +105,7 @@ CMakeFiles/locator.dir/locator.cpp.o: \
  /usr/include/c++/11/bits/basic_string.h \
  /usr/include/c++/11/ext/alloc_traits.h \
  /usr/include/c++/11/bits/alloc_traits.h \
- /usr/include/c++/11/bits/stl_construct.h /usr/include/c++/11/string_view \
- /usr/include/c++/11/bits/functional_hash.h \
- /usr/include/c++/11/bits/string_view.tcc \
+ /usr/include/c++/11/bits/stl_construct.h \
  /usr/include/c++/11/ext/string_conversions.h /usr/include/c++/11/cstdlib \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
@@ -135,6 +132,7 @@ CMakeFiles/locator.dir/locator.cpp.o: \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
+ /usr/include/c++/11/bits/functional_hash.h \
  /usr/include/c++/11/bits/basic_string.tcc \
  /usr/include/c++/11/bits/locale_classes.tcc \
  /usr/include/c++/11/system_error \
@@ -180,28 +178,18 @@ CMakeFiles/locator.dir/locator.cpp.o: \
  /usr/include/c++/11/ext/aligned_buffer.h \
  /usr/include/c++/11/ext/concurrence.h \
  /usr/include/c++/11/bits/shared_ptr_atomic.h \
- /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/include/c++/11/pstl/execution_defs.h /usr/include/c++/11/functional \
+ /usr/include/c++/11/backward/auto_ptr.h /usr/include/c++/11/functional \
  /usr/include/c++/11/bits/std_function.h \
- /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
- /usr/include/c++/11/bits/hashtable_policy.h \
- /usr/include/c++/11/bits/enable_special_members.h \
- /usr/include/c++/11/bits/node_handle.h \
- /usr/include/c++/11/bits/unordered_map.h \
- /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/vector \
- /usr/include/c++/11/bits/stl_vector.h \
- /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/bits/stl_algo.h \
- /usr/include/c++/11/bits/algorithmfwd.h \
- /usr/include/c++/11/bits/stl_heap.h \
- /usr/include/c++/11/bits/uniform_int_dist.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/fmt/fmt.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/fmt/bundled/core.h \
  /usr/include/c++/11/cstring /usr/include/string.h /usr/include/strings.h \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/c++/11/iterator /usr/include/c++/11/bits/stream_iterator.h \
+ /usr/include/c++/11/experimental/string_view \
+ /usr/include/c++/11/bits/ranges_base.h \
+ /usr/include/c++/11/experimental/bits/lfts_config.h \
+ /usr/include/c++/11/experimental/bits/string_view.tcc \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/fmt/bundled/format.h \
  /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -213,32 +201,98 @@ CMakeFiles/locator.dir/locator.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/tr1/gamma.tcc \
- /usr/include/c++/11/tr1/special_function_util.h \
- /usr/include/c++/11/tr1/bessel_function.tcc \
- /usr/include/c++/11/tr1/beta_function.tcc \
- /usr/include/c++/11/tr1/ell_integral.tcc \
- /usr/include/c++/11/tr1/exp_integral.tcc \
- /usr/include/c++/11/tr1/hypergeometric.tcc \
- /usr/include/c++/11/tr1/legendre_function.tcc \
- /usr/include/c++/11/tr1/modified_bessel_func.tcc \
- /usr/include/c++/11/tr1/poly_hermite.tcc \
- /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/fmt/bundled/core.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/registry.h \
- /usr/include/c++/11/mutex /usr/include/c++/11/bits/std_mutex.h \
+ /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
+ /usr/include/c++/11/bits/hashtable_policy.h \
+ /usr/include/c++/11/bits/enable_special_members.h \
+ /usr/include/c++/11/bits/unordered_map.h \
+ /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/mutex \
+ /usr/include/c++/11/bits/std_mutex.h \
  /usr/include/c++/11/bits/unique_lock.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/logger.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/log_msg.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/backtracer.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/log_msg_buffer.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/circular_q.h \
- /usr/include/c++/11/cassert /usr/include/assert.h \
+ /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_vector.h \
+ /usr/include/c++/11/bits/stl_bvector.h \
+ /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/cassert \
+ /usr/include/assert.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/version.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/synchronous_factory.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/sinks/basic_file_sink.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/details/file_helper.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/sinks/base_sink.h \
  /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/sinks/sink.h \
- /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/formatter.h
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include/spdlog/formatter.h \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/json.hpp \
+ /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
+ /usr/include/c++/11/bits/algorithmfwd.h \
+ /usr/include/c++/11/bits/stl_heap.h \
+ /usr/include/c++/11/bits/uniform_int_dist.h /usr/include/c++/11/cstddef \
+ /usr/include/c++/11/numeric /usr/include/c++/11/bits/stl_numeric.h \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/adl_serializer.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/abi_macros.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/conversions/from_json.hpp \
+ /usr/include/c++/11/forward_list /usr/include/c++/11/bits/forward_list.h \
+ /usr/include/c++/11/bits/forward_list.tcc /usr/include/c++/11/map \
+ /usr/include/c++/11/bits/stl_tree.h /usr/include/c++/11/bits/stl_map.h \
+ /usr/include/c++/11/bits/stl_multimap.h /usr/include/c++/11/valarray \
+ /usr/include/c++/11/bits/valarray_array.h \
+ /usr/include/c++/11/bits/valarray_array.tcc \
+ /usr/include/c++/11/bits/valarray_before.h \
+ /usr/include/c++/11/bits/slice_array.h \
+ /usr/include/c++/11/bits/valarray_after.h \
+ /usr/include/c++/11/bits/gslice.h \
+ /usr/include/c++/11/bits/gslice_array.h \
+ /usr/include/c++/11/bits/mask_array.h \
+ /usr/include/c++/11/bits/indirect_array.h \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/exceptions.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/value_t.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/macro_scope.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/meta/detected.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/meta/void_t.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/thirdparty/hedley/hedley.hpp \
+ /usr/include/c++/11/version \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/string_escape.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/input/position_t.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/meta/cpp_future.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/meta/type_traits.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/iterators/iterator_traits.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/meta/call_std/begin.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/meta/call_std/end.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/json_fwd.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/string_concat.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/meta/identity_tag.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/meta/std_fs.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/conversions/to_json.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/iterators/iteration_proxy.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/byte_container_with_subtype.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/hash.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/input/binary_reader.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/input/input_adapters.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/input/json_sax.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/input/lexer.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/meta/is_sax.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/input/parser.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/iterators/internal_iterator.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/iterators/primitive_iterator.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/iterators/iter_impl.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/json_pointer.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/json_ref.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/output/binary_writer.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/output/output_adapters.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/output/serializer.hpp \
+ /usr/include/c++/11/iomanip /usr/include/c++/11/locale \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h \
+ /usr/include/c++/11/bits/quoted_string.h \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/conversions/to_chars.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/ordered_map.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/detail/macro_unscope.hpp \
+ /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include/nlohmann/thirdparty/hedley/hedley_undef.hpp

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DSPDLOG_COMPILED_LIB
 
-CXX_INCLUDES = -I/home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include
+CXX_INCLUDES = -I/home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/spdlog-src/include -I/home/abraham/VsCodeProjects/Proteus/proteus_subscriber_location_server/build/_deps/nlohmann_json-src/include
 
-CXX_FLAGS = -O3 -DNDEBUG
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++14
 

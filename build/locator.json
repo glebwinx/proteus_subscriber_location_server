@@ -1,0 +1,22 @@
+{
+    "properties": {
+        "zones": {
+            "items": [
+                {
+                    "id": 1,
+                    "name": "SaintP",
+                    "radius": 15,
+                    "x": 10,
+                    "y": 20
+                },
+                {
+                    "id": 3,
+                    "name": "Moscow",
+                    "radius": -150,
+                    "x": -100,
+                    "y": -200
+                }
+            ]
+        }
+    }
+}

@@ -65,16 +65,34 @@ CMAKE_BINARY_DIR = /home/abraham/VsCodeProjects/Proteus/proteus_subscriber_locat
 # The main recursive "all" target.
 all: CMakeFiles/locator.dir/all
 all: _deps/spdlog-build/all
+all: _deps/nlohmann_json-build/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: _deps/spdlog-build/preinstall
+preinstall: _deps/nlohmann_json-build/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/locator.dir/clean
 clean: _deps/spdlog-build/clean
+clean: _deps/nlohmann_json-build/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory _deps/nlohmann_json-build
+
+# Recursive "all" directory target.
+_deps/nlohmann_json-build/all:
+.PHONY : _deps/nlohmann_json-build/all
+
+# Recursive "preinstall" directory target.
+_deps/nlohmann_json-build/preinstall:
+.PHONY : _deps/nlohmann_json-build/preinstall
+
+# Recursive "clean" directory target.
+_deps/nlohmann_json-build/clean:
+.PHONY : _deps/nlohmann_json-build/clean
 
 #=============================================================================
 # Directory level rules for directory _deps/spdlog-build
