@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(<PROJECT-NAME>_SOURCE_DIR)
+project(<PROJECT-NAME>)
 
-set(CMAKE_CXX_STANDART 14)
+set(CMAKE_CXX_STANDARD 14)  # Исправлено на CMAKE_CXX_STANDARD
 
 include(FetchContent)
 
@@ -17,6 +17,19 @@ if (NOT spdlog_POPULATED)
     add_subdirectory(${spdlog_SOURCE_DIR} ${spdlog_BINARY_DIR})
 endif()
 
+FetchContent_Declare(
+    nlohmann_json
+    GIT_REPOSITORY https://github.com/nlohmann/json.git
+    GIT_TAG v3.11.1
+)
+
+FetchContent_GetProperties(nlohmann_json)
+
+if (NOT nlohmann_json_POPULATED)
+    FetchContent_Populate(nlohmann_json)
+    add_subdirectory(${nlohmann_json_SOURCE_DIR} ${nlohmann_json_BINARY_DIR})
+endif()
+
 add_executable(locator locator.cpp)
 
-target_link_libraries(locator PRIVATE spdlog::spdlog)
+target_link_libraries(locator PRIVATE spdlog::spdlog nlohmann_json::nlohmann_json)
