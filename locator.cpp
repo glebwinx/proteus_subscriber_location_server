@@ -117,6 +117,42 @@ void to_json(json& j, const Trigger_Union_Subscribers& trigger_subscribers) {
     };
 }
 
+// Реализация триггера на вход и выход из зоны
+void triggerOnZone(const std::string& number, int x, int y) {
+    log_var_msg << "Проверка триггера на вход и выход из зон для абонента: " << number << " с координатами " << "[" << x << " : "<< y << "]";
+    MyLogger::logInfo(log_var_msg.str());
+
+    int zone_x, zone_y, radius, delta_x, delta_y, zone_id, get_location = 0;
+    std::ifstream inputFile(locator_json);
+    json locator;
+
+    if (inputFile.is_open()) {
+       inputFile >> locator;
+       inputFile.close();
+    }
+
+    for (auto& item : locator["properties"]["zones"]["items"]) {
+
+        zone_x = item["x"];
+        zone_y = item["y"];
+        zone_id = item["id"];
+        radius = item["radius"];
+        
+        delta_x = zone_x - x;
+        delta_y = zone_y - y;
+        get_location = std::sqrt(std::pow(delta_x, 2) + std::pow(delta_y, 2));
+
+
+        if(get_location == radius - 1){
+            log_var_msg << "Абонент " << number << " вошёл в зону c id: " << zone_id;
+            MyLogger::logInfo(log_var_msg.str());
+        } else if(get_location == radius + 1) {
+            log_var_msg << "Абонент " << number << " вышёл из зоны c id: " << zone_id;
+            MyLogger::logInfo(log_var_msg.str());
+        }
+    }
+}
+
 // Загрузка из файла конфигурации списка зон
 void getZoneFromFile() {
     // Реализация загрузки из файла
@@ -175,15 +211,15 @@ void setSubscriberLocation(const std::string& number, int x, int y) {
         inputFile.close();
     }
     if (number.length() == 12) {
-        log_var_msg << "Добавление абонента: " << number;
+        log_var_msg << "Добавление абонента: -> " << number;
         MyLogger::logInfo(log_var_msg.str());
         if(!checkDataInJson(number, state)) {
-            log_var_msg << "Пользователь " << number << " не найден.";
+            log_var_msg << "Пользователь " << number << " -> не найден.";
             MyLogger::logInfo(log_var_msg.str());
 
             Subscriber subscriberEntry{ number, x, y };
             locator["subscribers"].push_back(subscriberEntry);
-            log_var_msg << "Пользователь " << number << " добавлен.";
+            log_var_msg << "Пользователь " << number << " -> добавлен.";
             MyLogger::logInfo(log_var_msg.str());
         } else {
             for(auto& item : locator["subscribers"]) {
@@ -192,14 +228,15 @@ void setSubscriberLocation(const std::string& number, int x, int y) {
                     item["y"] = y;
                 }
             }
-            log_var_msg << "Местоположение для "<< number << " было перезаписано."; 
+            log_var_msg << "Местоположение для -> "<< number << " было перезаписано."; 
             MyLogger::logInfo(log_var_msg.str());
         }
         
     } else {
-        log_var_msg << "Номер введён не корректно или не распознан. Введено: " << number;
+        log_var_msg << "Номер введён не корректно или не распознан. Введено: -> " << number;
         MyLogger::logInfo(log_var_msg.str());
     }
+    triggerOnZone(number, x, y);
     std::ofstream outputFile(locator_json);
     outputFile << std::setw(4) << locator << std::endl;
     outputFile.close();
@@ -244,10 +281,10 @@ void addZone(int id, const std::string& name, int x, int y, int radius) {
 
 // Получение списка зон в которых находится абонент
 void getSubscriber(const std::string& number) {
-    int x, y = 0;
+    int zone_id, sub_x, sub_y, zone_x, zone_y, radius_zone, delta_x, delta_y, get_location, iter = 0;
     std::string state = "subscribers";
     if(!checkDataInJson(number, state)) {
-        log_var_msg << "Абонент " << number << " не найден.";
+        log_var_msg << "Абонент " << number << " -> не найден.";
         MyLogger::logInfo(log_var_msg.str());
     } else {
         std::ifstream inputFile(locator_json);
@@ -256,12 +293,30 @@ void getSubscriber(const std::string& number) {
         inputFile.close();
         for (auto& item : locator["subscribers"]) {
             if (item["number"] == number) {
-                x = item["x"];
-                y = item["y"];
+                sub_x = item["x"];
+                sub_y = item["y"];
             }
         }
-        log_var_msg  << "Координаты абонента " << number << " [" << x << " : " << y << "]";
+        log_var_msg  << "Координаты абонента " << number << " [" << sub_x << " : " << sub_y << "]";
         MyLogger::logInfo(log_var_msg.str());
+        for (auto& item : locator["properties"]["zones"]["items"]) {
+            zone_id = item["id"];
+            zone_x = item["x"];
+            zone_y = item["y"];
+            radius_zone = item["radius"];
+            delta_x = zone_x - sub_x;
+            delta_y = zone_y - sub_y;
+            get_location = std::sqrt(std::pow(delta_x, 2) + std::pow(delta_y, 2));
+            if (radius_zone >= get_location) {
+                iter += 1;
+                log_var_msg << "Абонент " << number << " находится в зоне с id: -> " << zone_id;
+                MyLogger::logInfo(log_var_msg.str());
+            }
+        }
+        if (iter == 0) {
+            log_var_msg << "Абонент " << number << " -> вне зон.";
+            MyLogger::logInfo(log_var_msg.str());
+        }
     }
 
 }
@@ -269,7 +324,8 @@ void getSubscriber(const std::string& number) {
 // Выдача списка абонентов, которые находятся в зоне id
 void getSubscriberinZone(int id) {
     std::string state = "zones_id";
-    int x_zone, y_zone, radius_zone, get_location, delta_x, delta_y = 0;
+    std::string number = "";
+    int x_zone, y_zone, radius_zone, get_location, delta_x, delta_y, iter = 0;
     if(!checkDataInJson(std::to_string(id), state)) {
         log_var_msg << "Зона с id: " << id << " не найдена";
         MyLogger::logInfo(log_var_msg.str());
@@ -287,45 +343,42 @@ void getSubscriberinZone(int id) {
 
         }
         for (auto& item : locator["subscribers"]) {
+            number = item["number"];
             int x = item["x"];
             int y = item["y"];
             delta_x = x_zone - x;
             delta_y = y_zone - y;
             get_location = std::sqrt(std::pow(delta_x, 2) + std::pow(delta_y, 2));
             if (get_location <= radius_zone) {
-                log_var_msg << "В зоне id: " << id << " находится абонент " << item["number"];
+                iter += 1;
+                log_var_msg << "В зоне id: " << id << " находится абонент -> " << number;
                 MyLogger::logInfo(log_var_msg.str());
             }
+        }
+        if (iter == 0) {
+            log_var_msg << "Зона с id: " << id << " -> пуста.";
+            MyLogger::logInfo(log_var_msg.str());
         }
     }
     // Реализация получения списка абонентов в зоне
 }
 
-// Реализация триггера на вход и выход из зоны
-void triggerOnZone(const std::string& number) {
-    // растояние = sqrt(x**2 + y**2)
-    //вход = если растояние == радиус - 1
-    //выход = если растояние == радиус + 1
-}
-
-// Триггер на сближение абонентов
-void triggerForUnionSubscribers() {
-    // Реализация триггера на сближение абонентов
-}
-
 int main() {
     setlocale(LC_ALL, "RU");
-    std::cout << "Приложение запущено" << std::endl;
+    std::cout << "Приложение запущено." << std::endl;
     MyLogger::init("logfile.txt");
     setSubscriberLocation("+79398874657", 4, 5);
-    setSubscriberLocation("+79398874657", 4, 5);
+    setSubscriberLocation("+79398874657", 20, 30);
+    setSubscriberLocation("+79398874657", 19, 31);
+    setSubscriberLocation("+79398874657", 15, 35);
+    setSubscriberLocation("+79398874657", 10, 4);
     setSubscriberLocation("+79990000000", 10, 20);
-    setSubscriberLocation("+79398874654", 6, 7);
+    setSubscriberLocation("+79398874654", 6, 6);
     addZone(1, "SaintP", 10, 20, 15);
     addZone(2, "Moscow", 100, 200, 150);
     addZone(3, "Moscow", 100, 200, 150);
     addZone(3, "Moscow", -100, -200, -150);
-    getSubscriber("+79398874657");
+    getSubscriber("+79398874654");
     getSubscriber("+79398844457");
     getSubscriberinZone(1);
     getSubscriberinZone(2);
