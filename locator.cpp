@@ -153,6 +153,41 @@ void triggerOnZone(const std::string& number, int x, int y) {
     }
 }
 
+void trigger_Union_Subscribers(const std::string& number, int x, int y) {
+    log_var_msg << "Проверка триггера на сближение абонента: " << number << " с другими абонентами.";
+    MyLogger::logInfo(log_var_msg.str());
+
+    int x_subs2, y_subs2, get_location, delta_x, delta_y, iter = 0;
+    std::string name_subs2 = "";
+
+    std::ifstream inputFile(locator_json);
+    json locator;
+    if (inputFile.is_open()) {
+        inputFile >> locator;
+        inputFile.close();
+    }
+    for (auto& item : locator["subscribers"]) {
+        if (item["number"] != number) {
+            name_subs2 = item["number"];
+            x_subs2 = item["x"];
+            y_subs2 = item["y"];
+            
+            delta_x = x - x_subs2;
+            delta_y = y - y_subs2;
+            get_location = std::sqrt(std::pow(delta_x, 2) + std::pow(delta_y, 2));
+            if (get_location <= 2 && get_location >= -2) {
+                iter += 1;
+                log_var_msg << "Абонент " << number << " рядом с абонентом " << name_subs2;
+                MyLogger::logInfo(log_var_msg.str());
+            }
+        }
+    }
+    if (iter == 0) {
+        log_var_msg << "Нет абонентов рядом с абонентом " << name_subs2;
+        MyLogger::logInfo(log_var_msg.str());
+    }
+}
+
 // Загрузка из файла конфигурации списка зон
 void getZoneFromFile() {
     // Реализация загрузки из файла
@@ -163,7 +198,7 @@ bool checkDataInJson(const std::string& name, const std::string& state) {
     if (!inputFile.is_open()) {
         log_var_msg << "Ошибка открытия файла и проверки имени для " << state << " " << name;
         MyLogger::logCritical(log_var_msg.str());
-        log_var_msg << "Cтруктура JSON для " << state << " -> была создана";
+        log_var_msg << "Cтруктура JSON для " << state << " -> была создана.";
         MyLogger::logInfo(log_var_msg.str());
         std::ofstream outputFile(locator_json);
         return false;
@@ -237,6 +272,7 @@ void setSubscriberLocation(const std::string& number, int x, int y) {
         MyLogger::logInfo(log_var_msg.str());
     }
     triggerOnZone(number, x, y);
+    trigger_Union_Subscribers(number, x, y);
     std::ofstream outputFile(locator_json);
     outputFile << std::setw(4) << locator << std::endl;
     outputFile.close();
@@ -327,7 +363,7 @@ void getSubscriberinZone(int id) {
     std::string number = "";
     int x_zone, y_zone, radius_zone, get_location, delta_x, delta_y, iter = 0;
     if(!checkDataInJson(std::to_string(id), state)) {
-        log_var_msg << "Зона с id: " << id << " не найдена";
+        log_var_msg << "Зона с id: " << id << " не найдена.";
         MyLogger::logInfo(log_var_msg.str());
     } else {
         std::ifstream inputFile(locator_json);
