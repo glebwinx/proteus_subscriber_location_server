@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(<PROJECT-NAME>)
 
-set(CMAKE_CXX_STANDARD 14)  # Исправлено на CMAKE_CXX_STANDARD
+set(CMAKE_CXX_STANDARD 14)  
 
 include(FetchContent)
 
@@ -30,6 +30,25 @@ if (NOT nlohmann_json_POPULATED)
     add_subdirectory(${nlohmann_json_SOURCE_DIR} ${nlohmann_json_BINARY_DIR})
 endif()
 
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG release-1.11.0
+)
+FetchContent_GetProperties(googletest)
+
+if (NOT googletest_POPULATED)
+    FetchContent_Populate(googletest)
+    add_subdirectory(${googletest_SOURCE_DIR} ${googletest_SOURCE_DIR})
+endif()
+
 add_executable(locator locator.cpp)
 
-target_link_libraries(locator PRIVATE spdlog::spdlog nlohmann_json::nlohmann_json)
+target_link_libraries(locator PRIVATE spdlog::spdlog nlohmann_json::nlohmann_json gtest_main)
+
+#добавим тесты 
+enable_testing()
+add_executable(example example/example.cpp)
+
+target_link_libraries(example PRIVATE gtest)
+add_test(NAME MyTest COMMAND example)
