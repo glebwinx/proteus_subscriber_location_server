@@ -117,22 +117,22 @@ void to_json(json& j, const Trigger_Union_Subscribers& trigger_subscribers) {
     };
 }
 
+
 // Реализация триггера на вход и выход из зоны
 void triggerOnZone(const std::string& number, int x, int y) {
+    int zone_x, zone_y, radius, delta_x, delta_y, zone_id, get_location = 0;
+    json locator;
+    std::ifstream inputFile(locator_json);
+
+    if (inputFile.is_open()) {
+         inputFile >> locator;
+         inputFile.close();
+    }
+    
     log_var_msg << "Проверка триггера на вход и выход из зон для абонента: " << number << " с координатами " << "[" << x << " : "<< y << "]";
     MyLogger::logInfo(log_var_msg.str());
 
-    int zone_x, zone_y, radius, delta_x, delta_y, zone_id, get_location = 0;
-    std::ifstream inputFile(locator_json);
-    json locator;
-
-    if (inputFile.is_open()) {
-       inputFile >> locator;
-       inputFile.close();
-    }
-
     for (auto& item : locator["properties"]["zones"]["items"]) {
-
         zone_x = item["x"];
         zone_y = item["y"];
         zone_id = item["id"];
@@ -142,16 +142,45 @@ void triggerOnZone(const std::string& number, int x, int y) {
         delta_y = zone_y - y;
         get_location = std::sqrt(std::pow(delta_x, 2) + std::pow(delta_y, 2));
 
+        int maxValue = 0;
+        std::string event_jsn = "";
+        std::string sub_id_jsn = "";
+        for (auto& trigger : locator["triggers"]) {
+            if (maxValue < trigger["id"]) {
+                maxValue = trigger["id"];
+            }
+        event_jsn = trigger["event"];
+        sub_id_jsn = trigger["subscriber_id"];
+        }
+
 
         if(get_location == radius - 1){
-            log_var_msg << "Абонент " << number << " вошёл в зону c id: " << zone_id;
-            MyLogger::logInfo(log_var_msg.str());
+            std::string event = "Entrance to zone";
+
+            if(event_jsn != event && sub_id_jsn != number) {
+                log_var_msg << "Абонент " << number << " вошёл в зону c id: " << zone_id;
+                MyLogger::logInfo(log_var_msg.str());
+            
+                Trigger_zone trigger_zone_entry{ maxValue + 1, number, zone_id, event };
+                locator["triggers"].push_back(trigger_zone_entry);
+            }
+
         } else if(get_location == radius + 1) {
-            log_var_msg << "Абонент " << number << " вышёл из зоны c id: " << zone_id;
-            MyLogger::logInfo(log_var_msg.str());
+            std::string event = "Exiting zone";
+            if(event_jsn != event && sub_id_jsn != number) {
+                log_var_msg << "Абонент " << number << " вышёл из зоны c id: " << zone_id;
+                MyLogger::logInfo(log_var_msg.str());
+
+                Trigger_zone trigger_zone_entry{ maxValue + 1, number, zone_id, event};
+                locator["triggers"].push_back(trigger_zone_entry);
+            }
         }
     }
+    std::ofstream outputFile(locator_json);
+    outputFile << std::setw(4) << locator << std::endl;
+    outputFile.close();
 }
+
 
 void trigger_Union_Subscribers(const std::string& number, int x, int y) {
     log_var_msg << "Проверка триггера на сближение абонента: " << number << " с другими абонентами.";
@@ -180,6 +209,7 @@ void trigger_Union_Subscribers(const std::string& number, int x, int y) {
                 log_var_msg << "Абонент " << number << " рядом с абонентом " << name_subs2;
                 MyLogger::logInfo(log_var_msg.str());
             }
+
         }
     }
     if (iter == 0) {
@@ -221,11 +251,7 @@ bool checkDataInJson(const std::string& name, const std::string& state) {
             }
             
         }
-    } else if (state == "subscribers"){
-        if (!locator.contains("subscribers")) {
-            locator["subscribers"] = json::array();
-            return true;
-        }
+    } else if (state == "subscribers") {
         for (auto& item : locator["subscribers"]) {
             if (item["number"] == name) {
                 return true;
@@ -271,11 +297,11 @@ void setSubscriberLocation(const std::string& number, int x, int y) {
         log_var_msg << "Номер введён не корректно или не распознан. Введено: -> " << number;
         MyLogger::logInfo(log_var_msg.str());
     }
-    triggerOnZone(number, x, y);
-    trigger_Union_Subscribers(number, x, y);
     std::ofstream outputFile(locator_json);
     outputFile << std::setw(4) << locator << std::endl;
     outputFile.close();
+    triggerOnZone(number, x, y);
+    trigger_Union_Subscribers(number, x, y);
 }
 
 // Добавление и изменение зон
